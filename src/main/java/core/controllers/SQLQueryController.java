@@ -1,6 +1,10 @@
 package core.controllers;
 
+import core.persistence.IQueryExecutor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.sql.ResultSet;
 
 /**
  * Created by Marcin on 2016-03-09.
@@ -9,11 +13,15 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class SQLQueryController {
 
+    @Autowired
+    IQueryExecutor queryExecutor;
+
+
     @RequestMapping(name = "/query", method = RequestMethod.POST)
     @ResponseBody
-    String handleSQLQuery(@RequestBody String query) {
+    ResultSet handleSQLQuery(@RequestBody String query) {
 
-        return "Query " + query + " processed";
+        return queryExecutor.executeQuery(query);
 
     }
 

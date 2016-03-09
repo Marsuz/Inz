@@ -17,4 +17,5 @@ public class SQLApp {
     public static void main(String[] args) {
         SpringApplication.run(SQLApp.class,args);
     }
+
 }
