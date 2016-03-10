@@ -1,12 +1,13 @@
 package core.persistence;
 
-import java.sql.ResultSet;
+import org.json.JSONObject;
+import java.util.List;
 
 /**
  * Created by Marcin on 2016-03-09.
  */
 public interface IQueryExecutor {
 
-    public ResultSet executeQuery(String query);
+    public List executeQuery(String query);
 
 }
